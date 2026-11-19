@@ -69,7 +69,45 @@
         (d ? `<p class="cat-desc">${esc(d)}</p>` : '') +
         `<ul class="items">${list.map(i => itemHtml(i, cur)).join('')}</ul></section>`;
     }).join('') : `<p class="empty">${esc(t('none'))}</p>`;
+    reveal();
     observe();
+  }
+
+  /* ---------- motion & 3D ---------- */
+  const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const st = { mx: 0, my: 0, sy: 0 };
+  let raf = 0, rio = null, motionOn = false;
+
+  function beansHtml() {
+    let h = '';
+    for (let i = 0; i < 14; i++) {
+      const z = 0.3 + Math.random() * 1.3, s = Math.round(14 + z * 20);
+      h += `<span class="bw" style="left:${(Math.random() * 94).toFixed(1)}%;top:${(Math.random() * 88).toFixed(1)}%;--z:${z.toFixed(2)}"><i class="bean" style="--s:${s}px;--dur:${(5 + Math.random() * 6).toFixed(1)}s;--dl:-${(Math.random() * 8).toFixed(1)}s;--r:${Math.round(Math.random() * 360)}deg;opacity:${(0.35 + z * 0.35).toFixed(2)}${z < 0.7 ? ';filter:blur(1.5px)' : ''}"></i></span>`;
+    }
+    return `<div class="beans" aria-hidden="true">${h}</div>`;
+  }
+  function applyMotion() {
+    raf = 0;
+    const h = $('.hero'); if (!h) return;
+    h.style.setProperty('--mx', st.mx.toFixed(3));
+    h.style.setProperty('--my', st.my.toFixed(3));
+    h.style.setProperty('--sy', st.sy.toFixed(0));
+  }
+  function sched() { if (!raf) raf = requestAnimationFrame(applyMotion); }
+  function initMotion() {
+    if (RM || motionOn) return;
+    motionOn = true;
+    const clamp = v => Math.max(-1, Math.min(1, v));
+    addEventListener('pointermove', e => { st.mx = e.clientX / innerWidth * 2 - 1; st.my = e.clientY / innerHeight * 2 - 1; sched(); }, { passive: true });
+    addEventListener('scroll', () => { st.sy = Math.min(scrollY, innerHeight * 1.2); sched(); }, { passive: true });
+    addEventListener('deviceorientation', e => { if (e.gamma == null) return; st.mx = clamp(e.gamma / 25); st.my = clamp((e.beta - 50) / 25); sched(); });
+  }
+  function reveal() {
+    if (rio) rio.disconnect();
+    const els = $$('.cat,.item');
+    if (RM || q || !('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+    rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    els.forEach((e, i) => { if (e.classList.contains('item')) e.style.setProperty('--d', (i % 6) * 60 + 'ms'); rio.observe(e); });
   }
 
   function observe() {
@@ -116,9 +154,10 @@
     $('#app').innerHTML = `
       <header class="hero" id="top">
         <div class="hero-bg"></div>
+        ${beansHtml()}
         <button class="lang-btn" type="button" data-lang>${t('other')}</button>
         <div class="hero-inner">
-          <div class="logo-card"><img src="${esc(s.logo || 'assets/logo.png')}" alt="${esc(tr(s.name))}" width="450" height="292"></div>
+          <div class="logo-wrap"><div class="steam" aria-hidden="true"><span></span><span></span><span></span></div><div class="logo-card"><img src="${esc(s.logo || 'assets/logo.png')}" alt="${esc(tr(s.name))}" width="450" height="292"></div></div>
           <h1>${esc(tr(s.name))}</h1>
           ${tr(s.tagline) ? `<p class="tag">${esc(tr(s.tagline))}</p>` : ''}
           ${tr(s.description) ? `<p class="about">${esc(tr(s.description))}</p>` : ''}
@@ -134,6 +173,7 @@
     if (s.cover) $('.hero-bg').style.backgroundImage = 'url("' + String(s.cover).replace(/"/g, '%22') + '")';
     q = '';
     renderMenu();
+    initMotion(); sched();
   }
 
   document.addEventListener('click', e => {
