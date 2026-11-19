@@ -1,0 +1,2822 @@
+{
+  "settings": {
+    "name": {
+      "en": "MADA – COFFEE & MORE",
+      "ar": ""
+    },
+    "tagline": {
+      "en": "Your Daily Coffee Moment",
+      "ar": ""
+    },
+    "description": {
+      "en": "",
+      "ar": ""
+    },
+    "currency": {
+      "en": "EGP",
+      "ar": "ج.م"
+    },
+    "defaultLang": "en",
+    "showEmptyCategories": false,
+    "logo": "assets/logo.png",
+    "cover": "",
+    "colors": {
+      "primary": "#781F38",
+      "primaryDark": "#521426",
+      "cream": "#E8D9C5",
+      "beige": "#CBB79E",
+      "coffee": "#604537",
+      "dark": "#30231F",
+      "bg": "#F8F3EC"
+    },
+    "contact": {
+      "phone": "",
+      "whatsapp": "",
+      "facebook": "",
+      "instagram": "",
+      "address": ""
+    },
+    "updatedAt": "2026-11-19T09:48:17Z"
+  },
+  "categories": [
+    {
+      "id": "ice-and-blended-coffee",
+      "name": {
+        "en": "Ice and Blended Coffee",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "mojito",
+      "name": {
+        "en": "Mojito",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "smoothie",
+      "name": {
+        "en": "Smoothie",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "hot-coffee",
+      "name": {
+        "en": "Hot Coffee",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "hot-drinks",
+      "name": {
+        "en": "Hot Drinks",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "shaker",
+      "name": {
+        "en": "Shaker",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "iced-tea",
+      "name": {
+        "en": "Iced Tea",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "breakfast",
+      "name": {
+        "en": "Breakfast",
+        "ar": ""
+      },
+      "desc": {
+        "en": "Order it with Bread, French toast or a croissant.",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "bakery",
+      "name": {
+        "en": "Bakery",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "salad",
+      "name": {
+        "en": "Salad",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "soft-drink",
+      "name": {
+        "en": "Soft Drink",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "dessert",
+      "name": {
+        "en": "Dessert",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "waffle",
+      "name": {
+        "en": "Waffle",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    },
+    {
+      "id": "pancake",
+      "name": {
+        "en": "Pancake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true
+    }
+  ],
+  "items": [
+    {
+      "id": "ice-and-blended-coffee-americano",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Americano",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 90
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-latte",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 105
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-mocha",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 120
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-caramel",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Caramel",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 120
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-salted-caramel",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Salted Caramel",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 125
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-spanish-latte",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Spanish Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 130
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-white-mocha",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "White Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 130
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-salted-white-mocha",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Salted White Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 135
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 135
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-cloud-latte",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Cloud Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 120
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-dirty-espresso",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Dirty Espresso",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 130
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-cinnabon-latte",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Cinnabon Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": 120
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "ice-and-blended-coffee-pistachio",
+      "category": "ice-and-blended-coffee",
+      "name": {
+        "en": "Pistachio",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Cubes",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Blended",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "mojito-mojito-classic-passion-fruit-strawberry-blueberry",
+      "category": "mojito",
+      "name": {
+        "en": "Mojito (Classic - Passion Fruit - Strawberry - Blueberry)",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 110
+        }
+      ]
+    },
+    {
+      "id": "mojito-lychee-mojito",
+      "category": "mojito",
+      "name": {
+        "en": "Lychee Mojito",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "mojito-red-bull-mojito-passion-fruit-blueberry",
+      "category": "mojito",
+      "name": {
+        "en": "Red Bull Mojito (Passion Fruit - Blueberry)",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "mojito-lemon-berry",
+      "category": "mojito",
+      "name": {
+        "en": "Lemon Berry",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "mojito-pink-lemon",
+      "category": "mojito",
+      "name": {
+        "en": "Pink Lemon",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "mojito-pina-colada",
+      "category": "mojito",
+      "name": {
+        "en": "Piña Colada",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "mojito-karkadeh-strawberry-passion-fruit",
+      "category": "mojito",
+      "name": {
+        "en": "Karkadeh (Strawberry - Passion Fruit)",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "smoothie-mango",
+      "category": "smoothie",
+      "name": {
+        "en": "Mango",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "smoothie-watermelon",
+      "category": "smoothie",
+      "name": {
+        "en": "Watermelon",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "smoothie-strawberry",
+      "category": "smoothie",
+      "name": {
+        "en": "Strawberry",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "smoothie-peach",
+      "category": "smoothie",
+      "name": {
+        "en": "Peach",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "smoothie-blueberry",
+      "category": "smoothie",
+      "name": {
+        "en": "Blueberry",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "smoothie-mango-passion-fruit",
+      "category": "smoothie",
+      "name": {
+        "en": "Mango Passion Fruit",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "smoothie-mango-peach",
+      "category": "smoothie",
+      "name": {
+        "en": "Mango Peach",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "smoothie-pina-colada",
+      "category": "smoothie",
+      "name": {
+        "en": "Piña Colada",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 125
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-espresso",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Espresso",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 70
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-americano",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Americano",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": 60
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 70
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-turkish-coffee",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Turkish Coffee",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": 50
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 60
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-french-coffee",
+      "category": "hot-coffee",
+      "name": {
+        "en": "French Coffee",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": 60
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 70
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-hazelnut-coffee",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Hazelnut Coffee",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": 70
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 80
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-macchiato",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Macchiato",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": 60
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 70
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-cortado",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Cortado",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 75
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-latte",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-cappuccino",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Cappuccino",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-flat-white",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Flat White",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 105
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-mocha",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-white-mocha",
+      "category": "hot-coffee",
+      "name": {
+        "en": "White Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-salted-white-mocha",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Salted White Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-caramel-latte",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Caramel Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 125
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-salted-caramel",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Salted Caramel",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-spanish-latte",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Spanish Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "hot-coffee-pistachio-latte",
+      "category": "hot-coffee",
+      "name": {
+        "en": "Pistachio Latte",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "Single",
+            "ar": ""
+          },
+          "value": null
+        },
+        {
+          "label": {
+            "en": "Double",
+            "ar": ""
+          },
+          "value": 140
+        }
+      ]
+    },
+    {
+      "id": "hot-drinks-hot-chocolate",
+      "category": "hot-drinks",
+      "name": {
+        "en": "Hot Chocolate",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "hot-drinks-tea",
+      "category": "hot-drinks",
+      "name": {
+        "en": "Tea",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 45
+        }
+      ]
+    },
+    {
+      "id": "hot-drinks-herbal-tea",
+      "category": "hot-drinks",
+      "name": {
+        "en": "Herbal Tea",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 45
+        }
+      ]
+    },
+    {
+      "id": "hot-drinks-karak-tea",
+      "category": "hot-drinks",
+      "name": {
+        "en": "Karak Tea",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 85
+        }
+      ]
+    },
+    {
+      "id": "shaker-salted-caramel",
+      "category": "shaker",
+      "name": {
+        "en": "Salted Caramel",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 135
+        }
+      ]
+    },
+    {
+      "id": "shaker-ice-vanilla",
+      "category": "shaker",
+      "name": {
+        "en": "Ice Vanilla",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "shaker-spanish-toffee-hazelnut",
+      "category": "shaker",
+      "name": {
+        "en": "Spanish Toffee Hazelnut",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 140
+        }
+      ]
+    },
+    {
+      "id": "shaker-lemonberry",
+      "category": "shaker",
+      "name": {
+        "en": "Lemonberry",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "shaker-ice-white-mocha",
+      "category": "shaker",
+      "name": {
+        "en": "Ice White Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 125
+        }
+      ]
+    },
+    {
+      "id": "shaker-ice-salted-mocha",
+      "category": "shaker",
+      "name": {
+        "en": "Ice Salted Mocha",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "iced-tea-passion",
+      "category": "iced-tea",
+      "name": {
+        "en": "Passion",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "iced-tea-peach",
+      "category": "iced-tea",
+      "name": {
+        "en": "Peach",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "iced-tea-strawberry",
+      "category": "iced-tea",
+      "name": {
+        "en": "Strawberry",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 100
+        }
+      ]
+    },
+    {
+      "id": "breakfast-smoked-turkey",
+      "category": "breakfast",
+      "name": {
+        "en": "Smoked Turkey",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 160
+        }
+      ]
+    },
+    {
+      "id": "breakfast-pepperoni-cheese",
+      "category": "breakfast",
+      "name": {
+        "en": "Pepperoni Cheese",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "breakfast-mix-cheese",
+      "category": "breakfast",
+      "name": {
+        "en": "Mix Cheese",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 145
+        }
+      ]
+    },
+    {
+      "id": "breakfast-roast-beef",
+      "category": "breakfast",
+      "name": {
+        "en": "Roast Beef",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 160
+        }
+      ]
+    },
+    {
+      "id": "breakfast-tuna-mayo",
+      "category": "breakfast",
+      "name": {
+        "en": "Tuna Mayo",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 165
+        }
+      ]
+    },
+    {
+      "id": "breakfast-pepperoni-omelet",
+      "category": "breakfast",
+      "name": {
+        "en": "Pepperoni Omelet",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "breakfast-oriental-breakfast",
+      "category": "breakfast",
+      "name": {
+        "en": "Oriental Breakfast",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 220
+        }
+      ]
+    },
+    {
+      "id": "breakfast-pancake-honey-butter",
+      "category": "breakfast",
+      "name": {
+        "en": "Pancake Honey & Butter",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "breakfast-french-toast-honey",
+      "category": "breakfast",
+      "name": {
+        "en": "French Toast Honey",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "bakery-cinnabon-classic",
+      "category": "bakery",
+      "name": {
+        "en": "Cinnabon Classic",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 115
+        }
+      ]
+    },
+    {
+      "id": "bakery-cinnabon-nutella",
+      "category": "bakery",
+      "name": {
+        "en": "Cinnabon Nutella",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "bakery-cinnabon-caramel",
+      "category": "bakery",
+      "name": {
+        "en": "Cinnabon Caramel",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 125
+        }
+      ]
+    },
+    {
+      "id": "bakery-cinnabon-lotus",
+      "category": "bakery",
+      "name": {
+        "en": "Cinnabon Lotus",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 140
+        }
+      ]
+    },
+    {
+      "id": "bakery-french-toast-nutella",
+      "category": "bakery",
+      "name": {
+        "en": "French Toast Nutella",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 145
+        }
+      ]
+    },
+    {
+      "id": "bakery-french-toast-kinder",
+      "category": "bakery",
+      "name": {
+        "en": "French Toast Kinder",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 145
+        }
+      ]
+    },
+    {
+      "id": "bakery-french-toast-pistachio",
+      "category": "bakery",
+      "name": {
+        "en": "French Toast Pistachio",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 155
+        }
+      ]
+    },
+    {
+      "id": "salad-caesar-salad",
+      "category": "salad",
+      "name": {
+        "en": "Caesar Salad",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 170
+        }
+      ]
+    },
+    {
+      "id": "salad-tuna-salad",
+      "category": "salad",
+      "name": {
+        "en": "Tuna Salad",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 170
+        }
+      ]
+    },
+    {
+      "id": "salad-greek-salad",
+      "category": "salad",
+      "name": {
+        "en": "Greek Salad",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "soft-drink-redbull",
+      "category": "soft-drink",
+      "name": {
+        "en": "Redbull",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 115
+        }
+      ]
+    },
+    {
+      "id": "soft-drink-v7",
+      "category": "soft-drink",
+      "name": {
+        "en": "V7",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 60
+        }
+      ]
+    },
+    {
+      "id": "soft-drink-v-cola",
+      "category": "soft-drink",
+      "name": {
+        "en": "V Cola",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 60
+        }
+      ]
+    },
+    {
+      "id": "soft-drink-v-cola-diet",
+      "category": "soft-drink",
+      "name": {
+        "en": "V Cola Diet",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 60
+        }
+      ]
+    },
+    {
+      "id": "soft-drink-water",
+      "category": "soft-drink",
+      "name": {
+        "en": "Water",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 15
+        }
+      ]
+    },
+    {
+      "id": "soft-drink-flo",
+      "category": "soft-drink",
+      "name": {
+        "en": "Flo",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 25
+        }
+      ]
+    },
+    {
+      "id": "dessert-chocolate-fudge",
+      "category": "dessert",
+      "name": {
+        "en": "Chocolate Fudge",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "dessert-cheesecake",
+      "category": "dessert",
+      "name": {
+        "en": "Cheesecake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 110
+        }
+      ]
+    },
+    {
+      "id": "dessert-san-sebastian",
+      "category": "dessert",
+      "name": {
+        "en": "San Sebastian",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "dessert-tiramisu",
+      "category": "dessert",
+      "name": {
+        "en": "Tiramisu",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 140
+        }
+      ]
+    },
+    {
+      "id": "dessert-red-velvet",
+      "category": "dessert",
+      "name": {
+        "en": "Red Velvet",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "dessert-rocher-cake",
+      "category": "dessert",
+      "name": {
+        "en": "Rocher Cake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "dessert-molten-cake",
+      "category": "dessert",
+      "name": {
+        "en": "Molten Cake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "dessert-brownies",
+      "category": "dessert",
+      "name": {
+        "en": "Brownies",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "dessert-brookies",
+      "category": "dessert",
+      "name": {
+        "en": "Brookies",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "dessert-cookies",
+      "category": "dessert",
+      "name": {
+        "en": "Cookies",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 110
+        }
+      ]
+    },
+    {
+      "id": "dessert-hot-cookies",
+      "category": "dessert",
+      "name": {
+        "en": "Hot Cookies",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "dessert-hot-cookies-ice-cream",
+      "category": "dessert",
+      "name": {
+        "en": "Hot Cookies Ice Cream",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 140
+        }
+      ]
+    },
+    {
+      "id": "waffle-nutella-waffle",
+      "category": "waffle",
+      "name": {
+        "en": "Nutella Waffle",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 125
+        }
+      ]
+    },
+    {
+      "id": "waffle-nutella-ice-cream-waffle",
+      "category": "waffle",
+      "name": {
+        "en": "Nutella Ice Cream Waffle",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 135
+        }
+      ]
+    },
+    {
+      "id": "waffle-lotus-waffle",
+      "category": "waffle",
+      "name": {
+        "en": "Lotus Waffle",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 135
+        }
+      ]
+    },
+    {
+      "id": "waffle-pistachio-waffle",
+      "category": "waffle",
+      "name": {
+        "en": "Pistachio Waffle",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 150
+        }
+      ]
+    },
+    {
+      "id": "waffle-kinder-waffle",
+      "category": "waffle",
+      "name": {
+        "en": "Kinder Waffle",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "pancake-nutella-pancake",
+      "category": "pancake",
+      "name": {
+        "en": "Nutella Pancake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 110
+        }
+      ]
+    },
+    {
+      "id": "pancake-nutella-ice-cream-pancake",
+      "category": "pancake",
+      "name": {
+        "en": "Nutella Ice Cream Pancake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "pancake-lotus-pancake",
+      "category": "pancake",
+      "name": {
+        "en": "Lotus Pancake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 120
+        }
+      ]
+    },
+    {
+      "id": "pancake-pistachio-pancake",
+      "category": "pancake",
+      "name": {
+        "en": "Pistachio Pancake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 130
+        }
+      ]
+    },
+    {
+      "id": "pancake-kinder-pancake",
+      "category": "pancake",
+      "name": {
+        "en": "Kinder Pancake",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "image": "",
+      "visible": true,
+      "prices": [
+        {
+          "label": {
+            "en": "",
+            "ar": ""
+          },
+          "value": 125
+        }
+      ]
+    }
+  ]
+}
