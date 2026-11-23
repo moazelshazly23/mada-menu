@@ -6,9 +6,9 @@
 
   const UI = {
     en: { explore: 'Explore Menu', search: 'Search the menu…', none: 'No items match your search.', other: 'العربية', err: 'The menu could not be loaded. Please refresh the page.', menu: 'Menu', call: 'Call', wa: 'WhatsApp', fb: 'Facebook', ig: 'Instagram',
-      add: 'Add', viewCart: 'View order', yourOrder: 'Your Order', total: 'Total', send: 'Send order on WhatsApp', emptyCart: 'Your order is empty.', choose: 'Choose an option', clear: 'Clear', noNumber: 'Ordering is not set up yet. Please ask the staff.', orderHead: 'Hello MADA! I would like to order:' },
+      add: 'Add', viewCart: 'View order', yourOrder: 'Your Order', total: 'Total', send: 'Send order on WhatsApp', emptyCart: 'Your order is empty.', choose: 'Choose an option', clear: 'Clear', noNumber: 'Ordering is not set up yet. Please ask the staff.', orderType: 'Order type', dineIn: 'Dine-in', takeaway: 'Takeaway', tableNo: 'Table number', tablePh: 'e.g. 5', needTable: 'Please enter your table number.', orderHead: 'Hello MADA! I would like to order:' },
     ar: { explore: 'استكشف المنيو', search: 'ابحث في المنيو…', none: 'لا توجد أصناف مطابقة لبحثك.', other: 'English', err: 'تعذّر تحميل المنيو. حاول تحديث الصفحة.', menu: 'المنيو', call: 'اتصال', wa: 'واتساب', fb: 'فيسبوك', ig: 'إنستغرام',
-      add: 'أضف', viewCart: 'عرض الطلب', yourOrder: 'طلبك', total: 'الإجمالي', send: 'ابعت الطلب على واتساب', emptyCart: 'طلبك فاضي لسه.', choose: 'اختار النوع', clear: 'مسح', noNumber: 'الطلب أونلاين لسه مش متظبط. اسأل الكاشير.', orderHead: 'أهلاً MADA! عايز أطلب:' }
+      add: 'أضف', viewCart: 'عرض الطلب', yourOrder: 'طلبك', total: 'الإجمالي', send: 'ابعت الطلب على واتساب', emptyCart: 'طلبك فاضي لسه.', choose: 'اختار النوع', clear: 'مسح', noNumber: 'الطلب أونلاين لسه مش متظبط. اسأل الكاشير.', orderType: 'نوع الطلب', dineIn: 'في الكافيه', takeaway: 'تيك أواي', tableNo: 'رقم الترابيزة', tablePh: 'مثال: 5', needTable: 'لو سمحت اكتب رقم الترابيزة.', orderHead: 'أهلاً MADA! عايز أطلب:' }
   };
 
   /* ===== ORDER CONFIG =====
@@ -36,6 +36,14 @@
   let cart = {};
   try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}') || {}; } catch (_) { cart = {}; }
   const saveCart = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (_) {} };
+  const META_KEY = 'mada_ordermeta_v1';
+  let orderType = 'takeaway', tableNo = '';
+  try {
+    const m = JSON.parse(localStorage.getItem(META_KEY) || '{}') || {};
+    if (m.orderType === 'dineIn' || m.orderType === 'takeaway') orderType = m.orderType;
+    tableNo = String(m.tableNo || '').replace(/[^\d]/g, '').slice(0, 3);
+  } catch (_) {}
+  const saveMeta = () => { try { localStorage.setItem(META_KEY, JSON.stringify({ orderType, tableNo })); } catch (_) {} };
   const validPrices = it => (it.prices || []).filter(p => p && p.value != null && p.value !== '' && Number(p.value) > 0);
   const findItem = id => D.items.find(i => i.id === id);
   const cartCount = () => Object.values(cart).reduce((a, b) => a + b, 0);
@@ -68,11 +76,13 @@
   function orderText() {
     const cur = tr(D.settings.currency) || 'EGP';
     const lines = cartEntries().map(e => `• ${e.qty}x ${e.name}${e.label ? ' (' + e.label + ')' : ''} - ${e.price * e.qty} ${cur}`);
-    return `${t('orderHead')}\n${lines.join('\n')}\n——————\n${t('total')}: ${cartTotal()} ${cur}`;
+    const head = t('orderHead') + (orderType === 'dineIn' && tableNo ? `\n${t('dineIn')} - ${t('tableNo')}: ${tableNo}` : '');
+    return `${head}\n${lines.join('\n')}\n——————\n${t('total')}: ${cartTotal()} ${cur}`;
   }
   function checkout() {
     const num = shopNumber();
     if (!num || !cartCount()) { toast(t('noNumber')); return; }
+    if (orderType === 'dineIn' && !tableNo) { toast(t('needTable')); const inp = $('#tno'); if (inp) inp.focus(); return; }
     const a = document.createElement('a');
     a.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(orderText());
     a.target = '_blank'; a.rel = 'noopener';
@@ -100,6 +110,10 @@
     const es = cartEntries();
     el.innerHTML = `<div class="sh-head"><h3>${esc(t('yourOrder'))}</h3><button class="x" type="button" data-close aria-label="×">×</button></div>` +
       (es.length ? es.map(e => `<div class="crow"><div class="cinfo"><span class="cnm">${esc(e.name)}</span>${e.label ? `<span class="clb">${esc(e.label)}</span>` : ''}<span class="cpr">${e.price * e.qty} ${esc(cur)}</span></div><div class="step"><button type="button" data-dec="${esc(e.key)}" aria-label="−">−</button><b>${e.qty}</b><button type="button" data-inc="${esc(e.key)}" aria-label="+">+</button></div></div>`).join('') +
+        `<div class="otype" role="group" aria-label="${esc(t('orderType'))}">` +
+        `<button class="obtn${orderType === 'takeaway' ? ' on' : ''}" type="button" data-otype="takeaway">${esc(t('takeaway'))}</button>` +
+        `<button class="obtn${orderType === 'dineIn' ? ' on' : ''}" type="button" data-otype="dineIn">${esc(t('dineIn'))}</button></div>` +
+        (orderType === 'dineIn' ? `<input class="tno" id="tno" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="${esc(t('tablePh'))}" value="${esc(tableNo)}" aria-label="${esc(t('tableNo'))}">` : '') +
         `<div class="ctotal"><span>${esc(t('total'))}</span><span class="pr">${cartTotal()}<small>${esc(cur)}</small></span></div>` +
         `<button class="send" type="button" data-checkout>${esc(t('send'))}</button>` +
         `<button class="clr" type="button" data-clear>${esc(t('clear'))}</button>`
@@ -331,12 +345,15 @@
     if (inc) { changeQty(inc.dataset.inc, 1); return; }
     const dec = e.target.closest('[data-dec]');
     if (dec) { changeQty(dec.dataset.dec, -1); return; }
+    const ot = e.target.closest('[data-otype]');
+    if (ot) { orderType = ot.dataset.otype; saveMeta(); renderCartSheet(); return; }
     if (e.target.closest('[data-clear]')) { cart = {}; saveCart(); updateCartUI(); renderCartSheet(); return; }
     if (e.target.closest('[data-checkout]')) { checkout(); return; }
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheets(); });
   document.addEventListener('input', e => {
     if (e.target.id === 'q') { q = e.target.value.trim().toLowerCase(); renderMenu(); }
+    if (e.target.id === 'tno') { const v = e.target.value.replace(/[^\d]/g, '').slice(0, 3); if (e.target.value !== v) e.target.value = v; tableNo = v; saveMeta(); }
   });
 
   function start(data) {
