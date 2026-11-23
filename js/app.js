@@ -5,10 +5,20 @@
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const UI = {
-    en: { explore: 'Explore Menu', search: 'Search the menu…', none: 'No items match your search.', other: 'العربية', err: 'The menu could not be loaded. Please refresh the page.', menu: 'Menu', call: 'Call', wa: 'WhatsApp', fb: 'Facebook', ig: 'Instagram' },
-    ar: { explore: 'استكشف المنيو', search: 'ابحث في المنيو…', none: 'لا توجد أصناف مطابقة لبحثك.', other: 'English', err: 'تعذّر تحميل المنيو. حاول تحديث الصفحة.', menu: 'المنيو', call: 'اتصال', wa: 'واتساب', fb: 'فيسبوك', ig: 'إنستغرام' }
+    en: { explore: 'Explore Menu', search: 'Search the menu…', none: 'No items match your search.', other: 'العربية', err: 'The menu could not be loaded. Please refresh the page.', menu: 'Menu', call: 'Call', wa: 'WhatsApp', fb: 'Facebook', ig: 'Instagram',
+      add: 'Add', viewCart: 'View order', yourOrder: 'Your Order', total: 'Total', send: 'Send order on WhatsApp', emptyCart: 'Your order is empty.', choose: 'Choose an option', clear: 'Clear', noNumber: 'Ordering is not set up yet. Please ask the staff.', orderHead: 'Hello MADA! I would like to order:' },
+    ar: { explore: 'استكشف المنيو', search: 'ابحث في المنيو…', none: 'لا توجد أصناف مطابقة لبحثك.', other: 'English', err: 'تعذّر تحميل المنيو. حاول تحديث الصفحة.', menu: 'المنيو', call: 'اتصال', wa: 'واتساب', fb: 'فيسبوك', ig: 'إنستغرام',
+      add: 'أضف', viewCart: 'عرض الطلب', yourOrder: 'طلبك', total: 'الإجمالي', send: 'ابعت الطلب على واتساب', emptyCart: 'طلبك فاضي لسه.', choose: 'اختار النوع', clear: 'مسح', noNumber: 'الطلب أونلاين لسه مش متظبط. اسأل الكاشير.', orderHead: 'أهلاً MADA! عايز أطلب:' }
   };
+
+  /* ===== ORDER CONFIG =====
+   * SHOP_WHATSAPP: the WhatsApp number that receives orders, international
+   * format, digits only (e.g. '2010XXXXXXXX' for Egypt).
+   * TODO(owner): set the shop's real number here, or fill
+   * settings.contact.whatsapp in data/menu.json (used as fallback). */
+  const SHOP_WHATSAPP = '201507750540'; // MADA shop WhatsApp (from Moaz, Nov 23 2026)
   const PREVIEW = /[?&]preview=1/.test(location.search);
+  const ROOT = window.__MADA_ROOT__ || '#app';
   let D = null, lang = 'en', q = '', io = null, activeId = null;
 
   // Name in current language; falls back to the other saved language, never machine-translates.
@@ -21,6 +31,98 @@
   const url = u => { u = String(u || '').trim(); if (!u) return ''; return /^https?:\/\//i.test(u) ? u : 'https://' + u.replace(/^\/+/, ''); };
   const t = k => UI[lang][k];
 
+  /* ---------- cart ---------- */
+  const CART_KEY = 'mada_cart_v1';
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}') || {}; } catch (_) { cart = {}; }
+  const saveCart = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (_) {} };
+  const validPrices = it => (it.prices || []).filter(p => p && p.value != null && p.value !== '' && Number(p.value) > 0);
+  const findItem = id => D.items.find(i => i.id === id);
+  const cartCount = () => Object.values(cart).reduce((a, b) => a + b, 0);
+  function cartEntries() {
+    const out = [];
+    Object.keys(cart).forEach(k => {
+      const q2 = cart[k]; if (!q2) return;
+      const [id, vi] = k.split('::');
+      const it = findItem(id); if (!it) return;
+      const p = validPrices(it)[Number(vi) || 0]; if (!p) return;
+      out.push({ key: k, it, price: Number(p.value), label: tr(p.label), name: tr(it.name), qty: q2 });
+    });
+    return out;
+  }
+  const cartTotal = () => cartEntries().reduce((a, e) => a + e.price * e.qty, 0);
+  function addToCart(id, vi) {
+    const k = id + '::' + (vi || 0);
+    cart[k] = (cart[k] || 0) + 1;
+    saveCart(); updateCartUI();
+  }
+  function changeQty(k, d) {
+    cart[k] = (cart[k] || 0) + d;
+    if (cart[k] <= 0) delete cart[k];
+    saveCart(); updateCartUI(); renderCartSheet();
+  }
+  function shopNumber() {
+    const fromData = (((D.settings || {}).contact || {}).whatsapp || '');
+    return String(SHOP_WHATSAPP || fromData).replace(/\D/g, '');
+  }
+  function orderText() {
+    const cur = tr(D.settings.currency) || 'EGP';
+    const lines = cartEntries().map(e => `• ${e.qty}x ${e.name}${e.label ? ' (' + e.label + ')' : ''} - ${e.price * e.qty} ${cur}`);
+    return `${t('orderHead')}\n${lines.join('\n')}\n——————\n${t('total')}: ${cartTotal()} ${cur}`;
+  }
+  function checkout() {
+    const num = shopNumber();
+    if (!num || !cartCount()) { toast(t('noNumber')); return; }
+    const a = document.createElement('a');
+    a.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(orderText());
+    a.target = '_blank'; a.rel = 'noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  let toastTimer = 0;
+  function toast(msg) {
+    const el = $('#toast'); if (!el) return;
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+  }
+  function openSheet(id) { const s = $(id); if (!s) return; const sc = $('#scrim'); sc.hidden = false; s.hidden = false; void s.offsetWidth; sc.classList.add('on'); s.classList.add('open'); }
+  function closeSheets() { const sc = $('#scrim'); if (sc) { sc.classList.remove('on'); setTimeout(() => { if (!sc.classList.contains('on')) sc.hidden = true; }, 250); } $$('.sheet').forEach(s => { s.classList.remove('open'); setTimeout(() => { if (!s.classList.contains('open')) s.hidden = true; }, 300); }); }
+  function renderVariantSheet(it) {
+    const cur = tr(D.settings.currency) || 'EGP';
+    const ps = validPrices(it);
+    $('#vsheet').innerHTML = `<div class="sh-head"><h3>${esc(tr(it.name))}</h3><button class="x" type="button" data-close aria-label="×">×</button></div>` +
+      `<p class="sh-sub">${esc(t('choose'))}</p>` +
+      ps.map((p, i) => `<button class="vrow" type="button" data-pick="${esc(it.id)}::${i}"><span>${esc(tr(p.label)) || esc(tr(it.name))}</span><span class="pr">${esc(p.value)}<small>${esc(cur)}</small></span><span class="vadd">${esc(t('add'))} +</span></button>`).join('');
+    openSheet('#vsheet');
+  }
+  function renderCartSheet() {
+    const el = $('#csheet'); if (!el) return;
+    const cur = tr(D.settings.currency) || 'EGP';
+    const es = cartEntries();
+    el.innerHTML = `<div class="sh-head"><h3>${esc(t('yourOrder'))}</h3><button class="x" type="button" data-close aria-label="×">×</button></div>` +
+      (es.length ? es.map(e => `<div class="crow"><div class="cinfo"><span class="cnm">${esc(e.name)}</span>${e.label ? `<span class="clb">${esc(e.label)}</span>` : ''}<span class="cpr">${e.price * e.qty} ${esc(cur)}</span></div><div class="step"><button type="button" data-dec="${esc(e.key)}" aria-label="−">−</button><b>${e.qty}</b><button type="button" data-inc="${esc(e.key)}" aria-label="+">+</button></div></div>`).join('') +
+        `<div class="ctotal"><span>${esc(t('total'))}</span><span class="pr">${cartTotal()}<small>${esc(cur)}</small></span></div>` +
+        `<button class="send" type="button" data-checkout>${esc(t('send'))}</button>` +
+        `<button class="clr" type="button" data-clear>${esc(t('clear'))}</button>`
+      : `<p class="cempty">${esc(t('emptyCart'))}</p>`);
+  }
+  function updateCartUI() {
+    const n = cartCount(), tot = cartTotal();
+    const cur = D ? (tr(D.settings.currency) || 'EGP') : 'EGP';
+    const bar = $('#cartbar');
+    if (bar) {
+      bar.hidden = !n;
+      document.body.classList.toggle('has-cart', !!n);
+      bar.innerHTML = n ? `<button class="cbtn" type="button" data-opencart><span class="cbag">🛍<i>${n}</i></span><span class="clabel">${esc(t('viewCart'))}</span><span class="ctot">${tot} ${esc(cur)}</span></button>` : '';
+    }
+    $$('.add-btn').forEach(b => {
+      const id = b.dataset.add;
+      const cnt = Object.keys(cart).filter(k => k.split('::')[0] === id).reduce((a, k) => a + cart[k], 0);
+      b.classList.toggle('in', cnt > 0);
+      const badge = b.querySelector('.cnt');
+      if (badge) { badge.textContent = cnt; badge.hidden = !cnt; }
+    });
+  }
+
   function applyTheme() {
     const c = (D.settings && D.settings.colors) || {};
     Object.keys(c).forEach(k => { if (/^#[0-9a-f]{3,8}$/i.test(c[k])) document.documentElement.style.setProperty('--' + k, c[k]); });
@@ -31,7 +133,7 @@
   }
 
   function itemHtml(it, cur) {
-    const prices = (it.prices || []).filter(p => p && p.value != null && p.value !== '' && Number(p.value) > 0);
+    const prices = validPrices(it);
     const labeled = prices.some(p => tr(p.label));
     const desc = tr(it.desc);
     let top;
@@ -42,7 +144,8 @@
         prices.map(p => `<div class="opt"><span class="lb">${esc(tr(p.label))}</span><span class="lead"></span>${priceHtml(p, cur)}</div>`).join('');
     }
     const img = it.image ? `<img class="thumb" loading="lazy" decoding="async" alt="" src="${esc(it.image)}">` : '';
-    return `<li class="item">${img}<div class="info">${top}${desc ? `<p class="ds">${esc(desc)}</p>` : ''}</div></li>`;
+    const add = prices.length ? `<button class="add-btn" type="button" data-add="${esc(it.id)}"><span class="cnt" hidden>0</span>${esc(t('add'))}<b>+</b></button>` : '';
+    return `<li class="item">${img}<div class="info">${top}${desc ? `<p class="ds">${esc(desc)}</p>` : ''}</div>${add}</li>`;
   }
 
   function matches(it, cat) {
@@ -62,15 +165,16 @@
       sections.push({ cat, list });
     });
     $('#chips').innerHTML = sections.map(x => `<button class="chip" type="button" data-cat="${esc(x.cat.id)}">${esc(tr(x.cat.name))}</button>`).join('');
-    $('#menu').innerHTML = sections.length ? sections.map(({ cat, list }) => {
+    $('#menu').innerHTML = sections.length ? sections.map(({ cat, list }, n) => {
       const d = tr(cat.desc);
-      return `<section class="cat" data-id="${esc(cat.id)}"><h2>${esc(tr(cat.name))}</h2>` +
+      return `<section class="cat" data-id="${esc(cat.id)}"><div class="cat-head"><span class="cat-no">${String(n + 1).padStart(2, '0')}</span><h2>${esc(tr(cat.name))}</h2><span class="cat-n">${list.length}</span></div>` +
         (cat.image ? `<img class="cat-img" loading="lazy" decoding="async" alt="" src="${esc(cat.image)}">` : '') +
         (d ? `<p class="cat-desc">${esc(d)}</p>` : '') +
         `<ul class="items">${list.map(i => itemHtml(i, cur)).join('')}</ul></section>`;
     }).join('') : `<p class="empty">${esc(t('none'))}</p>`;
     reveal();
     observe();
+    updateCartUI();
   }
 
   /* ---------- motion & 3D ---------- */
@@ -86,17 +190,28 @@
     }
     return `<div class="beans" aria-hidden="true">${h}</div>`;
   }
+  function marqueeHtml() {
+    const names = D.categories.filter(c => c.visible !== false).map(c => tr(c.name)).filter(Boolean);
+    const one = names.map(n => `<span>${esc(n)}</span><b>✦</b>`).join('');
+    return one + one;
+  }
   function applyMotion() {
     raf = 0;
     const h = $('.hero'); if (!h) return;
     h.style.setProperty('--mx', st.mx.toFixed(3));
     h.style.setProperty('--my', st.my.toFixed(3));
     h.style.setProperty('--sy', st.sy.toFixed(0));
+    const pg = $('.progress'), tt = $('.to-top');
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (pg) pg.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0).toFixed(4) + ')';
+    if (tt) tt.classList.toggle('show', scrollY > innerHeight * 0.8);
   }
   function sched() { if (!raf) raf = requestAnimationFrame(applyMotion); }
   function initMotion() {
-    if (RM || motionOn) return;
+    if (motionOn) return;
     motionOn = true;
+    addEventListener('scroll', sched, { passive: true });
+    if (RM) return;
     const clamp = v => Math.max(-1, Math.min(1, v));
     addEventListener('pointermove', e => { st.mx = e.clientX / innerWidth * 2 - 1; st.my = e.clientY / innerHeight * 2 - 1; sched(); }, { passive: true });
     addEventListener('scroll', () => { st.sy = Math.min(scrollY, innerHeight * 1.2); sched(); }, { passive: true });
@@ -151,7 +266,7 @@
     const about = tr(s.description) || tr(s.tagline);
     if (md && about) md.content = about;
     const ogt = $('meta[property="og:title"]'); if (ogt) ogt.content = tr(s.name);
-    $('#app').innerHTML = `
+    $(ROOT).innerHTML = `
       <header class="hero" id="top">
         <div class="hero-bg"></div>
         ${beansHtml()}
@@ -164,12 +279,20 @@
           <a class="btn" href="#menu-start" data-go>${t('explore')}</a>
         </div>
       </header>
+      <div class="marquee" aria-hidden="true"><div class="mq">${marqueeHtml()}</div></div>
       <div class="bar" id="menu-start">
         <div class="search"><input id="q" type="search" placeholder="${esc(t('search'))}" aria-label="${esc(t('search'))}" autocomplete="off"><button class="lang-mini" type="button" data-lang>${t('other')}</button></div>
         <nav class="chips" id="chips" aria-label="Categories"></nav>
       </div>
       <main id="menu"></main>
-      ${footerHtml(s)}`;
+      ${footerHtml(s)}
+      <div class="progress" aria-hidden="true"></div>
+      <button class="to-top" type="button" aria-label="Top" data-top>↑</button>
+      <div class="cartbar" id="cartbar" hidden></div>
+      <div class="scrim" id="scrim" hidden data-close></div>
+      <div class="sheet" id="vsheet" hidden role="dialog" aria-modal="true"></div>
+      <div class="sheet" id="csheet" hidden role="dialog" aria-modal="true"></div>
+      <div class="toast" id="toast" role="status"></div>`;
     if (s.cover) $('.hero-bg').style.backgroundImage = 'url("' + String(s.cover).replace(/"/g, '%22') + '")';
     q = '';
     renderMenu();
@@ -183,14 +306,35 @@
       try { localStorage.setItem('mada_lang', lang); } catch (_) {}
       return render();
     }
+    if (e.target.closest('[data-top]')) return scrollTo({ top: 0, behavior: 'smooth' });
     const go = e.target.closest('[data-go]');
     if (go) { e.preventDefault(); $('#menu-start').scrollIntoView({ behavior: 'smooth' }); return; }
     const ch = e.target.closest('.chip');
     if (ch) {
       const sec = $$('.cat').find(c => c.dataset.id === ch.dataset.cat);
       if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
     }
+    /* cart */
+    const addB = e.target.closest('[data-add]');
+    if (addB) {
+      const it = findItem(addB.dataset.add); if (!it) return;
+      const ps = validPrices(it);
+      if (ps.length > 1) renderVariantSheet(it); else if (ps.length === 1) { addToCart(it.id, 0); toast(tr(it.name) + ' ✓'); }
+      return;
+    }
+    const pick = e.target.closest('[data-pick]');
+    if (pick) { const [id, vi] = pick.dataset.pick.split('::'); addToCart(id, Number(vi)); closeSheets(); return; }
+    if (e.target.closest('[data-opencart]')) { renderCartSheet(); openSheet('#csheet'); return; }
+    if (e.target.closest('[data-close]')) { closeSheets(); return; }
+    const inc = e.target.closest('[data-inc]');
+    if (inc) { changeQty(inc.dataset.inc, 1); return; }
+    const dec = e.target.closest('[data-dec]');
+    if (dec) { changeQty(dec.dataset.dec, -1); return; }
+    if (e.target.closest('[data-clear]')) { cart = {}; saveCart(); updateCartUI(); renderCartSheet(); return; }
+    if (e.target.closest('[data-checkout]')) { checkout(); return; }
   });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheets(); });
   document.addEventListener('input', e => {
     if (e.target.id === 'q') { q = e.target.value.trim().toLowerCase(); renderMenu(); }
   });
@@ -216,9 +360,13 @@
     });
     if (window.parent !== window) window.parent.postMessage({ type: 'mada-preview-ready' }, location.origin);
   } else {
-    fetch('data/menu.json', { cache: 'no-cache' })
-      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(start)
-      .catch(() => { $('#app').innerHTML = `<p class="err">${UI.en.err}<br>${UI.ar.err}</p>`; });
+    if (window.__MADA_DATA__) {
+      start(window.__MADA_DATA__);
+    } else {
+      fetch('data/menu.json', { cache: 'no-cache' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(start)
+        .catch(() => { $(ROOT).innerHTML = `<p class="err">${UI.en.err}<br>${UI.ar.err}</p>`; });
+    }
   }
 })();
