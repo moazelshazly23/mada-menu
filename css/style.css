@@ -309,3 +309,11 @@ html[dir=rtl] .toast.show{transform:translate(50%,0)}
 /* cart fixes */
 .cartbar[hidden]{display:none}
 .add-btn .cnt[hidden]{display:none}
+
+
+/* order type + table number */
+.otype{display:flex;gap:.6rem;margin:1rem 0 .2rem}
+.obtn{flex:1;border:1px solid rgba(203,183,158,.5);background:#fff;border-radius:999px;padding:.75rem .5rem;cursor:pointer;font-weight:600;color:var(--coffee);font-size:.95rem;transition:all .15s;font-family:inherit}
+.obtn.on{border-color:var(--primary);background:linear-gradient(135deg,var(--primary),var(--primaryDark));color:var(--cream);box-shadow:0 8px 18px -8px rgba(120,31,56,.5)}
+.tno{width:100%;box-sizing:border-box;margin:.6rem 0 .2rem;border:1px solid rgba(203,183,158,.5);border-radius:16px;padding:.85rem 1.1rem;font-size:1rem;background:#fff;font-family:inherit;color:var(--dark)}
+.tno:focus{outline:none;border-color:var(--primary)}
