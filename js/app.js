@@ -6,9 +6,9 @@
 
   const UI = {
     en: { explore: 'Explore Menu', search: 'Search the menu…', none: 'No items match your search.', other: 'العربية', err: 'The menu could not be loaded. Please refresh the page.', menu: 'Menu', call: 'Call', wa: 'WhatsApp', fb: 'Facebook', ig: 'Instagram',
-      add: 'Add', viewCart: 'View order', yourOrder: 'Your Order', total: 'Total', send: 'Send order on WhatsApp', emptyCart: 'Your order is empty.', choose: 'Choose an option', clear: 'Clear', noNumber: 'Ordering is not set up yet. Please ask the staff.', orderType: 'Order type', dineIn: 'Dine-in', takeaway: 'Takeaway', tableNo: 'Table number', tablePh: 'e.g. 5', needTable: 'Please enter your table number.', orderHead: 'Hello MADA! I would like to order:' },
+      add: 'Add', viewCart: 'View order', yourOrder: 'Your Order', total: 'Total', send: 'Send order on WhatsApp', emptyCart: 'Your order is empty.', choose: 'Choose an option', clear: 'Clear', noNumber: 'Ordering is not set up yet. Please ask the staff.', orderType: 'Order type', dineIn: 'Dine-in', takeaway: 'Takeaway', tableNo: 'Table number', tablePh: 'Enter your table number, e.g. 5', needTable: 'Please enter your table number.', orderHead: 'Hello MADA! I would like to order:' },
     ar: { explore: 'استكشف المنيو', search: 'ابحث في المنيو…', none: 'لا توجد أصناف مطابقة لبحثك.', other: 'English', err: 'تعذّر تحميل المنيو. حاول تحديث الصفحة.', menu: 'المنيو', call: 'اتصال', wa: 'واتساب', fb: 'فيسبوك', ig: 'إنستغرام',
-      add: 'أضف', viewCart: 'عرض الطلب', yourOrder: 'طلبك', total: 'الإجمالي', send: 'ابعت الطلب على واتساب', emptyCart: 'طلبك فاضي لسه.', choose: 'اختار النوع', clear: 'مسح', noNumber: 'الطلب أونلاين لسه مش متظبط. اسأل الكاشير.', orderType: 'نوع الطلب', dineIn: 'في الكافيه', takeaway: 'تيك أواي', tableNo: 'رقم الترابيزة', tablePh: 'مثال: 5', needTable: 'لو سمحت اكتب رقم الترابيزة.', orderHead: 'أهلاً MADA! عايز أطلب:' }
+      add: 'أضف', viewCart: 'عرض الطلب', yourOrder: 'طلبك', total: 'الإجمالي', send: 'ابعت الطلب على واتساب', emptyCart: 'طلبك فاضي لسه.', choose: 'اختار النوع', clear: 'مسح', noNumber: 'الطلب أونلاين لسه مش متظبط. اسأل الكاشير.', orderType: 'نوع الطلب', dineIn: 'في الكافيه', takeaway: 'تيك أواي', tableNo: 'رقم الترابيزة', tablePh: 'اكتب رقم الترابيزة، مثال 5', needTable: 'لو سمحت اكتب رقم الترابيزة.', orderHead: 'أهلاً MADA! عايز أطلب:' }
   };
 
   /* ===== ORDER CONFIG =====
@@ -113,7 +113,7 @@
         `<div class="otype" role="group" aria-label="${esc(t('orderType'))}">` +
         `<button class="obtn${orderType === 'takeaway' ? ' on' : ''}" type="button" data-otype="takeaway">${esc(t('takeaway'))}</button>` +
         `<button class="obtn${orderType === 'dineIn' ? ' on' : ''}" type="button" data-otype="dineIn">${esc(t('dineIn'))}</button></div>` +
-        (orderType === 'dineIn' ? `<input class="tno" id="tno" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="${esc(t('tablePh'))}" value="${esc(tableNo)}" aria-label="${esc(t('tableNo'))}">` : '') +
+        (orderType === 'dineIn' ? `<label class="table-label" for="tno">${esc(t('tableNo'))}</label><input class="tno" id="tno" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="${esc(t('tablePh'))}" value="${esc(tableNo)}" aria-label="${esc(t('tableNo'))}">` : '') +
         `<div class="ctotal"><span>${esc(t('total'))}</span><span class="pr">${cartTotal()}<small>${esc(cur)}</small></span></div>` +
         `<button class="send" type="button" data-checkout>${esc(t('send'))}</button>` +
         `<button class="clr" type="button" data-clear>${esc(t('clear'))}</button>`
